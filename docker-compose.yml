@@ -1,0 +1,10 @@
+version: "1.0"
+services:
+  tesseract:
+    build: tesseract
+    image: out/tesseract4
+    command: uwsgi --socket 0.0.0.0:8081 --protocol=http -w wsgi:app
+    volumes:
+      - ./tesseract:/app
+    ports:
+      - 8081:8081
